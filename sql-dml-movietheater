@@ -1,0 +1,124 @@
+INSERT INTO customers(
+    phone_num,
+    first_name,
+    last_name,
+    username,
+    user_password,
+    customer_email
+)
+
+VALUES(
+    '555-349-3232',
+    'Joe',
+    'Thomas',
+    'joethomas',
+    'thomas',
+    'joethomas@gmail.com'
+),
+(
+    '939-929-3994',
+    'Tim',
+    'Mi',
+    'timmi1',
+    'timmit',
+    'timmi@gmail.com'
+),
+(
+    '453-234-5193',
+    'Kyle',
+    'She',
+    'kyleshe',
+    'shekyle',
+    'kyleshe@gmail.com'
+);
+
+
+INSERT INTO payment(
+    ticket_receipt,
+    card_number,
+    customer_email
+)
+VALUES(
+    '838382',
+    '722838290',
+    'joethomas@gmail.com'
+),
+(
+    '920201',
+    '934290340',
+    'timmi@gmail.com'
+),
+(
+    '939283',
+    '93939923',
+    'kyleshe@gmail.com'
+);
+
+
+INSERT INTO ticket(
+    row_num,
+    seat_number,
+    movie_showtime
+)
+VALUES(
+    '12',
+    '1',
+    '1015'
+),
+(
+    '12',
+    '3',
+    '1015'
+),
+(
+    '12',
+    '2',
+    '1015'
+);
+
+INSERT INTO concessions(
+    concess_type,
+    card_number
+)
+
+VALUES(
+    'popcorn',
+    '722838290'
+),
+(
+    'soda',
+    '934290340'
+),
+(
+    'pretzel',
+    '93939923'
+);
+
+INSERT INTO movies(
+    movie_name,
+    movie_showtime,
+    rating,
+    movie_date
+)
+
+VALUES(
+    'the great adventure',
+    '1015',
+    'PG_13',
+    '23'
+),
+(
+    'the great adventure',
+    '1015',
+    'PG_13',
+    '23'
+),
+(
+    'the great adventure',
+    '1015',
+    'PG_13',
+    '23'
+);
+
+
+

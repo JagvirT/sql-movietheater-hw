@@ -1,0 +1,78 @@
+SELECT *
+FROM payment
+
+CREATE TABLE customers(
+    customer_id SERIAL PRIMARY KEY,
+    phone_num VARCHAR,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    username VARCHAR(30),
+    user_password VARCHAR(30),
+);
+
+CREATE TABLE payment(
+    order_id SERIAL PRIMARY KEY,
+    customer_id INTEGER,
+    ticket_receipt INTEGER,
+    card_number INTEGER,
+    customer_email VARCHAR(50)
+);
+
+CREATE TABLE ticket(
+    ticket_number SERIAL PRIMARY KEY,
+    row_num VARCHAR(10),
+    seat_number INTEGER,
+    movie_showtime INTEGER
+);
+
+CREATE TABLE concessions(
+    concess_receipt SERIAL PRIMARY KEY,
+    concess_type VARCHAR(50),
+    card_number INTEGER
+);
+
+CREATE TABLE movies(
+    movie_id SERIAL,
+    movie_name VARCHAR(50),
+    movie_showtime INTEGER,
+    rating VARCHAR(10),
+    movie_date INTEGER
+);
+
+ALTER TABLE customers DROP COLUMN phone_num;
+
+ALTER TABLE customers ADD COLUMN phone_num VARCHAR(30);
+
+ALTER TABLE customers
+ADD COLUMN customer_email VARCHAR(50);
+
+ALTER TABLE payment
+ADD FOREIGN KEY (customer_id) REFERENCES customers(customer_id);
+
+
+
+-- I tried adding these FK but it said that a FK should be a 
+-- PK in a different table so I assumed that is why they didn't work
+
+-- ALTER TABLE customers
+-- ADD FOREIGN KEY (customer_email) REFERENCES payment(customer_email);
+
+-- ALTER TABLE payment
+-- ADD FOREIGN KEY (card_number) REFERENCES concessions(card_number);
+
+-- ALTER TABLE payment
+-- ADD FOREIGN KEY (customer_email) REFERENCES customers(customer_email);
+
+-- ALTER TABLE ticket
+-- ADD FOREIGN KEY (movie_showtime) REFERENCES movies(movie_showtime);
+
+-- ALTER TABLE concessions
+-- ADD FOREIGN KEY (card_number) REFERENCES payment(card_number);
+
+-- ALTER TABLE movies
+-- ADD FOREIGN KEY (movie_showtime) REFERENCES ticket(movie_showtime);
+
+
+
+
+
